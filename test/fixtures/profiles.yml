@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  age: 1
+  father_name: MyString
+  dob: 2013-01-12
+  district: MyString
+  zone: MyString
+  ward_no: 1
+  phone: MyString
+  occupation: MyString
+  verification_id: MyString
+  verification_type: MyString
+  maritial_status: MyString
+
+two:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  age: 1
+  father_name: MyString
+  dob: 2013-01-12
+  district: MyString
+  zone: MyString
+  ward_no: 1
+  phone: MyString
+  occupation: MyString
+  verification_id: MyString
+  verification_type: MyString
+  maritial_status: MyString
