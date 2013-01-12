@@ -12,4 +12,6 @@
 
 class Balance < ActiveRecord::Base
   attr_accessible :amount, :interest_id, :member_id
+  belongs_to :member
+  has_one :interest
 end

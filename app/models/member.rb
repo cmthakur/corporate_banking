@@ -14,4 +14,6 @@
 
 class Member < ActiveRecord::Base
   attr_accessible :email, :name, :profile_id, :status, :type
+  has_one :profile
+  has_many :cash_collections
 end

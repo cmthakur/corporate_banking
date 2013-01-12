@@ -19,8 +19,12 @@
 #  maritial_status   :string(255)      not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  account_id        :integer
+#  member_id         :integer
 #
 
 class Profile < ActiveRecord::Base
   attr_accessible :age, :district, :dob, :father_name, :fname, :lname, :maritial_status, :mname, :occupation, :phone, :verification_id, :verification_type, :ward_no, :zone
+  belongs_to :account
+  belongs_to :member
 end

@@ -1,4 +1,24 @@
 SimpleBanking::Application.routes.draw do
+  get "members/new"
+
+  get "members/show"
+
+  get "members/index"
+
+  get "collections/new"
+
+  get "collections/show"
+
+  get "collections/index"
+
+  get "accounts/new"
+
+  get "accounts/show"
+
+  get "accounts/index"
+
+  get "dashboard/index"
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -50,7 +70,7 @@ SimpleBanking::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'dashboard#index'
 
   # See how all your routes lay out with "rake routes"
 

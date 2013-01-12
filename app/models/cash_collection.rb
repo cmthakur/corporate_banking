@@ -12,4 +12,6 @@
 
 class CashCollection < ActiveRecord::Base
   attr_accessible :account_id, :amount, :id, :member_id
+  belongs_to :account
+  belongs_to :member
 end

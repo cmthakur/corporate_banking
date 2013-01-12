@@ -15,4 +15,7 @@
 
 class Account < ActiveRecord::Base
   attr_accessible :balance_id, :email, :name, :profile_id, :status, :type
+  has_one :profile
+  has_one :balance
+  has_many  :cash_collections
 end
