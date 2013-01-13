@@ -27,6 +27,25 @@ class AccountsController < ApplicationController
     end
   end
 
-  def show
+  def edit
+    @account = Account.find(params['id'])
   end
+
+  def show
+    @account = Account.find(params['id'])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js
+    end
+  end
+
+  def destroy
+    @account = Account.find(params['id'])
+    @account.destroy
+    respond_to do |format|
+      format.html { redirect_to accounts_path, notice: 'Account deleted successfully!' }
+    end
+  end
+
+
 end
