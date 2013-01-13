@@ -1,21 +1,4 @@
 SimpleBanking::Application.routes.draw do
-  get "members/new"
-
-  get "members/show"
-
-  get "members/index"
-
-  get "collections/new"
-
-  get "collections/show"
-
-  get "collections/index"
-
-  get "accounts/new"
-
-  get "accounts/show"
-
-  get "accounts/index"
 
   get "dashboard/index"
 
@@ -46,6 +29,18 @@ SimpleBanking::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
+  resources :members do
+
+  end
+
+  resources :accounts do
+
+  end
+
+  resources :collections do
+
+  end
 
   # Sample resource route with sub-resources:
   #   resources :products do

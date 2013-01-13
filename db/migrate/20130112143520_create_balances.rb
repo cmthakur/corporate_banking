@@ -4,7 +4,7 @@ class CreateBalances < ActiveRecord::Migration
       t.integer :id
       t.float :amount, :default => 0
       t.integer :member_id,:null => false
-      t.integer :interest_id,:null => false
+      t.integer :interest_id
 
       t.timestamps
     end

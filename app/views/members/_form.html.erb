@@ -1,0 +1,119 @@
+<%= form_for @member, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :user_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :account_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.fields_for :profile do |pf| %>
+    <%####################################################################%>
+    <div class="informatio_name"> Personal Information: </div>
+    <div class="control-group">
+      <%= pf.label :first_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :fname, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :middle_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :mname, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :last_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :lname, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :father_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :father_name, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :date_of_birth, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :dob, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :approximate_age, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :age, :class => 'numeric_field' %>
+      </div>
+    </div>
+    <div class="informatio_name"> Address Information: </div>
+    <div class="control-group">
+      <%= pf.label :district, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :district, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :zone, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :zone, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :ward_no, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :ward_no, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :phone, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :phone, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :occupation, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :occupation, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :maritial_status, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :maritial_status, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="informatio_name"> Account Verification </div>
+    <div class="control-group">
+      <%= pf.label :verification_type, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :verification_type, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= pf.label :verification_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :verification_id, :class => 'text_field' %>
+      </div>
+    </div>
+  <%####################################################################%>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                members_path, :class => 'btn' %>
+  </div>
+<% end %>

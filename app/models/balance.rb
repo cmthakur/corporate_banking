@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  amount      :float            default(0.0)
 #  member_id   :integer          not null
-#  interest_id :integer          not null
+#  interest_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
