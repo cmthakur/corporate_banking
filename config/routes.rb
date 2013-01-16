@@ -38,7 +38,7 @@ SimpleBanking::Application.routes.draw do
 
   end
 
-  resources :collections do
+  resources :cash_collections do
 
   end
 

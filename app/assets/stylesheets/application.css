@@ -11,3 +11,37 @@
  *= require_self
  *= require_tree .
  */
+
+ .notice{
+  background:  #B5CB5B;
+  text-align:  center;
+}
+
+.alert_message{
+  background:  red;
+  text-align:  center;
+}
+
+.login_title{
+  background: #96868D;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 12px 12px 0 0;
+}
+
+#error_explanation{
+  background: #FC8D98;
+  margin-left: -15%;
+  margin-top: -7%;
+  text-align: center;
+}
+
+#error_explanation h2{
+  font-size: 10px;
+}
+
+#error_explanation ul{
+font-size: 10px;
+list-style: none;
+margin: -20px 0 20px;
+}

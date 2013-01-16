@@ -1,18 +1,35 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="content">
+    <h3 class="login_title">Sign Up</h3>
+    <div class="row">
+      <div class="login-form">
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <fieldset>
+          <div class="clearfix">
+            <%= f.label :email %>
+            <%= f.email_field :email, :autofocus => true %>
+          </div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+          <div class="clearfix">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+          <div class="clearfix">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+          </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+          <div>
+            <%= f.submit "Sign up", :class => 'btn btn-primary' %>
+          </div>
+        </fieldset>
+        <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
