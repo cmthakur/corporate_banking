@@ -2,7 +2,9 @@
 <div class="control-group">
   <%= f.label :account_name, :class => 'control-label' %>
   <div class="controls">
-    <%= f.text_field :account_id, :class => 'text_field' %>
+    <%# = select("account_name", "account_id", Account.all.collect {|p| [ p.email, p.id ] }, {:include_blank => ''}) %>
+    <%= f.select(:account_id, options_for_select(Account.all.collect {|p| [ p.email, p.id ] }), { :include_blank => true }) %>
+    <%#= f.autocomplete_field :account_id, autocomplete_account_name_cash_collections_path, :class => 'text_field' %>
   </div>
 </div>
 <div class="control-group">
@@ -13,7 +15,7 @@
 </div>
 
 <div class="form-actions">
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit "collect", :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
   cash_collections_path, :class => 'btn' %>
 </div>

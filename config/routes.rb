@@ -39,7 +39,7 @@ SimpleBanking::Application.routes.draw do
   end
 
   resources :cash_collections do
-
+    get :autocomplete_account_name, :on => :collection
   end
 
   # Sample resource route with sub-resources:

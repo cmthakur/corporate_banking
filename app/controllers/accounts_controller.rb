@@ -16,7 +16,8 @@ class AccountsController < ApplicationController
       @account.save
       @profile = Profile.create(profile_data.merge({:account_id => @account.id}))
       @account.profile = @profile
-      @account.save
+      @account.balance = Balance.create(:account_id => @account.id)
+      @account.save!
     end
     respond_to do |format|
       if Account.last == @account

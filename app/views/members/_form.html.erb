@@ -12,9 +12,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :account_type, :class => 'control-label' %>
+    <%= f.label :role, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :type, :class => 'text_field' %>
+       <%= f.select(:type, options_for_select(Member::ROLES, :selected => params[:type]), { :include_blank => true }) %>
     </div>
   </div>
   <div class="control-group">
@@ -48,7 +48,7 @@
     <div class="control-group">
       <%= pf.label :date_of_birth, :class => 'control-label' %>
       <div class="controls">
-        <%= pf.text_field :dob, :class => 'text_field' %>
+        <%= pf.text_field :dob, :class => 'text_field','data-behaviour' => 'datepicker' %>
       </div>
     </div>
     <div class="control-group">
@@ -79,7 +79,7 @@
     <div class="control-group">
       <%= pf.label :phone, :class => 'control-label' %>
       <div class="controls">
-        <%= pf.text_field :phone, :class => 'text_field' %>
+        <%= pf.text_field :phone, :class => 'numeric_field' %>
       </div>
     </div>
     <div class="control-group">
@@ -91,14 +91,14 @@
     <div class="control-group">
       <%= pf.label :maritial_status, :class => 'control-label' %>
       <div class="controls">
-        <%= pf.text_field :maritial_status, :class => 'text_field' %>
+        <%= pf.select(:maritial_status, options_for_select(Profile::MARITIAL_STATUS, :selected => params[:maritial_status])) %>
       </div>
     </div>
     <div class="informatio_name"> Account Verification </div>
     <div class="control-group">
       <%= pf.label :verification_type, :class => 'control-label' %>
       <div class="controls">
-        <%= pf.text_field :verification_type, :class => 'text_field' %>
+       <%= pf.select(:verification_type, options_for_select(Profile::VERIFIED_BY,:selected => params[:verification_type] )) %>
       </div>
     </div>
     <div class="control-group">

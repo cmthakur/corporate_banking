@@ -9,17 +9,25 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-datepicker
  *= require_tree .
  */
 
  .notice{
   background:  #B5CB5B;
+  margin-left: 25%;
+  width: 50%;
   text-align:  center;
+  border-radius: 0 0 12px 12px;
+  margin-top: -1.8%;
 }
 
 .alert_message{
   background:  red;
+  margin-left: 25%;
+  width: 50%;
   text-align:  center;
+  border-radius: 0 0 12px 12px;
 }
 
 .login_title{
@@ -41,7 +49,26 @@
 }
 
 #error_explanation ul{
-font-size: 10px;
-list-style: none;
-margin: -20px 0 20px;
+  font-size: 10px;
+  list-style: none;
+  margin: -20px 0 20px;
+}
+
+.upper_navigation{
+
+}
+
+.app_title{
+  background: none repeat scroll 0 0 #B6CDD1;
+  font-size: 27px;
+  line-height: 29px;
+}
+.app_title p{
+ margin:  0 0 45px !important;
+ line-height: 50px;
+}
+.top_bar{
+  font-size:16px;
+  margin: 22px;
+  margin-top: -4%;
 }

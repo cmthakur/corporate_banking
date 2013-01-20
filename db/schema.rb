@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(:version => 20130112155721) do
 
   create_table "balances", :force => true do |t|
     t.float    "amount",      :default => 0.0
-    t.integer  "member_id",                    :null => false
+    t.integer  "member_id"
+    t.integer  "account_id"
     t.integer  "interest_id"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false

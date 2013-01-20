@@ -19,4 +19,14 @@ class Account < ActiveRecord::Base
   has_one :balance
   has_many  :cash_collections
   self.inheritance_column = :_type_disabled
+  TYPE = [["Normal", 0],["Saving", 1],["Current",2]]
+
+  def full_name
+    @profile = self.profile
+    if @profile
+      @fullname = "#{@profile.fname} #{@profile.mname} #{@profile.lname}"
+    end
+    full_name = @fullname ? @fullname : self.name
+  end
+
 end

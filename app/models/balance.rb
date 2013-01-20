@@ -4,14 +4,15 @@
 #
 #  id          :integer          not null, primary key
 #  amount      :float            default(0.0)
-#  member_id   :integer          not null
+#  member_id   :integer
+#  account_id  :integer
 #  interest_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Balance < ActiveRecord::Base
-  attr_accessible :amount, :interest_id, :member_id
+  attr_accessible :amount, :interest_id, :member_id, :account_id
   belongs_to :member
   has_one :interest
 end

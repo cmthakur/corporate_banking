@@ -1,5 +1,26 @@
-<% @collection.each do |collection| %>
-<% binding.pry %>
- account name : <%= collection.account.name %>
- amount:<%= collection.amount %>
-<% end %>
+<%= link_to "Make Collection", new_cash_collection_path, :class => 'btn btn-primary pull-right' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Account No.</th>
+      <th>Account Name</th>
+      <th>Amount Deposited</th>
+      <th>Total Amount</th>
+      <th>Collected By</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @collections.each do |collection| %>
+    <% account = collection.account %>
+      <tr>
+        <td><%= link_to account.id, account_path(account.id) %></td>
+        <td><%= account.full_name %></td>
+        <td><%= collection.amount %></td>
+        <td><%= account.balance.amount %></td>
+        <td><%= collection.collected_by %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
