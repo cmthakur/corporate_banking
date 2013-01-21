@@ -24,6 +24,8 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params['id'])
+    @profile = @member.profile
+    @collections = @member.cash_collections
     respond_to do |format|
       format.html # show.html.erb
       format.js

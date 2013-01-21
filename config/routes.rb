@@ -35,7 +35,10 @@ SimpleBanking::Application.routes.draw do
   end
 
   resources :accounts do
-
+    member do
+      post :unlock
+      post :lock
+    end
   end
 
   resources :cash_collections do

@@ -34,6 +34,9 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params['id'])
+    @profile = @account.profile
+    @balance = @account.balance
+    @collections = @account.cash_collections
     respond_to do |format|
       format.html # show.html.erb
       format.js
@@ -48,5 +51,16 @@ class AccountsController < ApplicationController
     end
   end
 
+  def lock
+    @account = Account.find(params['id'])
+    @account.lock!
+    render :back, :notice => "Account locked successfully"
+  end
+
+  def unlock
+   @account = Account.find(params['id'])
+   @account.unlock!
+   render :back, :notice => "Account unlocked successfully"
+ end
 
 end

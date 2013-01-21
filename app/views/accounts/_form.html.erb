@@ -1,5 +1,6 @@
-<%= form_for @account, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="informatio_name"> Account Information: </div>
+<div class="box_show" >
+  <%= form_for @account, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
+  <div class="informatio_name"> Step 1: Basic Information: </div>
   <div class="control-group">
     <%= f.label :account_name, :class => 'control-label' %>
     <div class="controls">
@@ -19,10 +20,10 @@
     </div>
   </div>
 
+  <div class="informatio_name"> Step 2: Personal Information: </div>
   <div class="control-group">
     <%= f.fields_for :profile do |pf| %>
     <%####################################################################%>
-    <div class="informatio_name"> Personal Information: </div>
     <div class="control-group">
       <%= pf.label :first_name, :class => 'control-label' %>
       <div class="controls">
@@ -61,15 +62,21 @@
     </div>
     <div class="informatio_name"> Address Information: </div>
     <div class="control-group">
+      <%= pf.label :zone, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.text_field :zone, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
       <%= pf.label :district, :class => 'control-label' %>
       <div class="controls">
         <%= pf.text_field :district, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
-      <%= pf.label :zone, :class => 'control-label' %>
+      <%= pf.label :VDC, :class => 'control-label' %>
       <div class="controls">
-        <%= pf.text_field :zone, :class => 'text_field' %>
+        <%= pf.text_field :mcp, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group">
@@ -96,11 +103,11 @@
         <%= pf.select(:maritial_status, options_for_select(Profile::MARITIAL_STATUS, :selected => params[:maritial_status])) %>
       </div>
     </div>
-    <div class="informatio_name"> Account Verification </div>
+    <div class="informatio_name"> Step 3: Account Verification </div>
     <div class="control-group">
       <%= pf.label :verification_type, :class => 'control-label' %>
       <div class="controls">
-      <%= pf.select(:verification_type, options_for_select(Profile::VERIFIED_BY,:selected => params[:verification_type] )) %>
+        <%= pf.select(:verification_type, options_for_select(Profile::VERIFIED_BY,:selected => params[:verification_type] )) %>
       </div>
     </div>
     <div class="control-group">
@@ -109,11 +116,19 @@
         <%= pf.text_field :verification_id, :class => 'text_field' %>
       </div>
     </div>
-  <%####################################################################%>
+
+    <div class="control-group">
+      <%= pf.label :your_recent_photo, :class => 'control-label' %>
+      <div class="controls">
+        <%= pf.file_field :image %>
+      </div>
+    </div>
+    <%####################################################################%>
     <% end %>
   </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to 'cancle', accounts_path, :class => 'btn' %>
   </div>
-<% end %>
+  <% end %>
+</div>

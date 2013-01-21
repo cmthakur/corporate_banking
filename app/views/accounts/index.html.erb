@@ -29,6 +29,12 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+
+          <% if account.locked? %>
+            <%= link_to "Unlock", unlock_account_path(account), :class => 'btn btn-mini btn-action' %>
+          <% else %>
+            <%= link_to "Lock", lock_account_path(account), :class => 'btn btn-mini btn-action' %>
+          <% end %>
         </td>
       </tr>
     <% end %>

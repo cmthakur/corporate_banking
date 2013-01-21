@@ -8,6 +8,8 @@ gem 'rails', '3.2.7'
 gem 'sqlite3'
 gem 'rails3-jquery-autocomplete'
 gem 'bootstrap-datepicker-rails'
+gem "rmagick"
+gem "carrierwave"
 
 
 # Gems used only for assets and not required
@@ -26,6 +28,7 @@ end
 gem 'jquery-rails'
 
 gem 'devise'
+gem "cancan"
 
 
 gem 'annotate', ">=2.5.0"

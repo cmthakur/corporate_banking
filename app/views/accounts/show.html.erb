@@ -1,31 +1,29 @@
-<%- model_class = Account -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @account.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @account.type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:profile_id) %>:</strong></dt>
-  <dd><%= @account.profile_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @account.status %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:balance_id) %>:</strong></dt>
-  <dd><%= @account.balance_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @account.email %></dd>
-</dl>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              accounts_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_account_path(@account), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              account_path(@account),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<div class="box_show">
+  <div class="box_content">
+    <h4><%= @account.full_name %></h4>
+    <div>
+      <strong>Son of: </strong> <%= @profile.father_name %>
+    </div>
+    <div class="profile_image">
+      <%= image_tag @profile.image_url(:thumb) if @profile.image? %>
+    </div>
+    <div>
+      <strong>Address: </strong>
+      <%= @profile.district %>
+      <%= @profile.ward_no %>
+      <%= @profile.zone %>
+    </div>
+    <div><strong>Status: </strong><%= @account.status %></div>
+    <div>
+      <strong>Balance:</strong>
+      <div class="balance_stats">
+        <p>Current Amount: <%= @balance.amount%> </p>
+        <% unless @collections.blank? %>
+        <p>Last collection done on: <%= @collections.last.created_at.strftime("%b %d, %Y") %> </p>
+        <p>Last collected amount: <%= @collections.last.amount %> </p>
+        <p>Last collection done by: <%= @collections.last.collected_by %> </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

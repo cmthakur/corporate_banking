@@ -29,4 +29,16 @@ class Account < ActiveRecord::Base
     full_name = @fullname ? @fullname : self.name
   end
 
+  def locked?
+    status == 'locked'
+  end
+
+  def lock!
+    update_attribute(:status, 'locked')
+  end
+
+  def unlock!
+    update_attribute(:status, 'active')
+  end
+
 end

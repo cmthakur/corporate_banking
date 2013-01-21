@@ -21,12 +21,16 @@
 #  updated_at        :datetime         not null
 #  account_id        :integer
 #  member_id         :integer
+#  image             :string(255)
+#  mcp               :string(255)
 #
 
 class Profile < ActiveRecord::Base
-  attr_accessible :age, :district, :dob, :father_name, :fname, :lname, :maritial_status, :mname, :occupation, :phone, :verification_id, :verification_type, :ward_no, :zone, :account_id, :member_id
+  attr_accessible :age, :district, :dob, :image, :mcp, :father_name, :fname, :lname, :maritial_status, :mname, :occupation, :phone, :verification_id, :verification_type, :ward_no, :zone, :account_id, :member_id
   belongs_to :account
   belongs_to :member
+
   VERIFIED_BY = [["Citizenship", 0],["Passport", 1],["Driving Liscence", 2]]
   MARITIAL_STATUS = [["Single", 0],["Marrried", 1]]
+  mount_uploader :image, ImageUploader
 end
