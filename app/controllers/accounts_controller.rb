@@ -54,13 +54,13 @@ class AccountsController < ApplicationController
   def lock
     @account = Account.find(params['id'])
     @account.lock!
-    render :back, :notice => "Account locked successfully"
+    redirect_to :back, :notice => "Account locked successfully"
   end
 
   def unlock
    @account = Account.find(params['id'])
    @account.unlock!
-   render :back, :notice => "Account unlocked successfully"
+   redirect_to :back, :notice => "Account unlocked successfully"
  end
 
 end

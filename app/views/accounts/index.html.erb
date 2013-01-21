@@ -31,9 +31,9 @@
                       :class => 'btn btn-mini btn-danger' %>
 
           <% if account.locked? %>
-            <%= link_to "Unlock", unlock_account_path(account), :class => 'btn btn-mini btn-action' %>
+            <%= link_to "Unlock", unlock_account_path(account),:method => :post, :class => 'btn btn-mini btn-action' %>
           <% else %>
-            <%= link_to "Lock", lock_account_path(account), :class => 'btn btn-mini btn-action' %>
+            <%= link_to "Lock", lock_account_path(account),:method => :post, :class => 'btn btn-mini btn-action' %>
           <% end %>
         </td>
       </tr>
