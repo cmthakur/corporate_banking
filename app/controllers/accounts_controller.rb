@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+  # before_filter :authenticate_user!
+
   def index
     @accounts = Account.all.to_a
   end
@@ -58,9 +60,17 @@ class AccountsController < ApplicationController
   end
 
   def unlock
-   @account = Account.find(params['id'])
-   @account.unlock!
-   redirect_to :back, :notice => "Account unlocked successfully"
- end
+    @account = Account.find(params['id'])
+    @account.unlock!
+    redirect_to :back, :notice => "Account unlocked successfully"
+  end
+
+  def passbook
+    @account = Account.find(params['id'])
+    @passbook_data = @account.cash_collections
+    respond_to do |format|
+      format.html
+    end
+  end
 
 end

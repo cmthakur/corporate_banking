@@ -1,0 +1,16 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <% if current_member %>
+      <% if current_member.is_super_admin? %>
+        <li class= <%= params["controller"] == 'accounts' ? "active" : '' %>><%= link_to "Accounts", accounts_path %></li>
+        <li class= <%= params["controller"] == 'members' ? "active" : '' %>><%= link_to "Members", members_path %></li>
+        <li class= <%= params["controller"] == 'cash_collections' ? "active" : '' %>><%= link_to "Cash Collection", cash_collections_path %></li>
+        <li class= <%= params["controller"] == 'loans' ? "active" : '' %>><%= link_to "Loan", '#' %></li>
+    <% elsif current_member.is_finance_admin? %>
+    <% elsif current_member.is_loan_admin? %>
+    <% elsif current_member.is_collection_admin? %>
+    <% elsif current_member.is_collection_staff? %>
+    <% end %>
+    <% end %>
+  </ul>
+</div>

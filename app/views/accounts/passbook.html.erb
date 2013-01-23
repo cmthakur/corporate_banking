@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Amount Deposited</th>
+      <th>Total Amount</th>
+      <th>Collected By</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% total_amount = @passbook_data.first.amount %>
+    <% @passbook_data.each do |collection| %>
+    <tr>
+      <td><%= collection.created_at.strftime("%b %d, %Y") %></td>
+      <td><%= amount = collection.amount %></td>
+      <td><%= total_amount %></td>
+      <td><%= collection.collected_by %></td>
+    </tr>
+    <% total_amount += amount %>
+    <% end %>
+  </tbody>
+</table>

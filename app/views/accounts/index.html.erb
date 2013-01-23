@@ -24,6 +24,7 @@
         <td><%= account.status %></td>
         <td><%= account.balance.amount %></td>
         <td>
+          <%= link_to "Passbook", passbook_account_path(account),:method => :get, :class => 'btn btn-mini btn-action' %>
           <%= link_to "Delete",
                       account_path(account),
                       :method => :delete,

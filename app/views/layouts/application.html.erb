@@ -6,7 +6,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= render :file => 'layouts/upper_navigation' %>
-  <%= render :file => 'layouts/bank_navigation' %>
+  <% render :file => 'layouts/bank_navigation' if current_member %>
+  <%= render :file => 'layouts/member_navigation' if current_member %>
   <p class="notice"><%= notice %></p>
   <p class="alert_message"><%= alert %></p>
 

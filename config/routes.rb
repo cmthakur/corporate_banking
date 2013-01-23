@@ -1,5 +1,7 @@
 SimpleBanking::Application.routes.draw do
 
+  devise_for :members
+
   get "dashboard/index"
 
   devise_for :users
@@ -38,6 +40,7 @@ SimpleBanking::Application.routes.draw do
     member do
       post :unlock
       post :lock
+      get  :passbook
     end
   end
 
