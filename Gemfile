@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.11'
+gem 'execjs'
+
+gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,7 +13,7 @@ gem 'rails3-jquery-autocomplete'
 gem 'bootstrap-datepicker-rails'
 gem "rmagick"
 gem "carrierwave"
-
+gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
