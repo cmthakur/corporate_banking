@@ -1,0 +1,16 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <% case current_member.type.to_i %>
+    <% when 0 %>
+    <%= render :file => 'layouts/roles/super_admin' %>
+    <% when 1 %>
+    <%= render :file => 'layouts/roles/finance_admin' %>
+    <% when 2 %>
+    <%= render :file => 'layouts/roles/loan_admin' %>
+    <% when 3 %>
+    <%= render :file => 'layouts/roles/collection_admin' %>
+    <% when 4 %>
+    <%= render :file => 'layouts/roles/collection_staff' %>
+    <% end %>
+  </ul>
+</div>

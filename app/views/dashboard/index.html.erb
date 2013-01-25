@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="hero-unit">
   <% @links_tags.each do |link, address| %>
   <div class="nav_links" >
@@ -7,3 +8,4 @@
   <% end %>
 
 </div>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="box_show" >
-<%= form_for @member, :html => { :class => 'form-horizontal' } do |f| %>
-<div class="informatio_name"> Step 1: Account/Login Information: </div>
+  <%= form_for @member, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="informatio_name"> Step 1: Account/Login Information: </div>
   <div class="control-group">
     <%= f.label :user_name, :class => 'control-label' %>
     <div class="controls">
@@ -14,121 +14,134 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :role, :class => 'control-label' %>
+    <%= f.label :password, :class => 'control-label' %>
     <div class="controls">
-       <%= f.select(:type, options_for_select(Member::ROLES, :selected => params[:type]), { :include_blank => true }) %>
+      <%= f.password_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password_confirmation,:class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.fields_for :profile do |pf| %>
-    <%####################################################################%>
-    <div class="informatio_name">Step 2: Personal Information: </div>
-    <div class="control-group">
-      <%= pf.label :first_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :fname, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :middle_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :mname, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :last_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :lname, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :father_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :father_name, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :date_of_birth, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :dob, :class => 'text_field','data-behaviour' => 'datepicker' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :approximate_age, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :age, :class => 'numeric_field' %>
-      </div>
-    </div>
-    <div class="informatio_name"> Address Information: </div>
-    <div class="control-group">
-      <%= pf.label :district, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :district, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :zone, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :zone, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :VDC, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :mcp, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :ward_no, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :ward_no, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :phone, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :phone, :class => 'numeric_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :occupation, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :occupation, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :maritial_status, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.select(:maritial_status, options_for_select(Profile::MARITIAL_STATUS, :selected => params[:maritial_status])) %>
-      </div>
-    </div>
-    <div class="informatio_name"> Step 3: Account Verification </div>
-    <div class="control-group">
-      <%= pf.label :verification_type, :class => 'control-label' %>
-      <div class="controls">
-       <%= pf.select(:verification_type, options_for_select(Profile::VERIFIED_BY,:selected => params[:verification_type] )) %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :verification_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.text_field :verification_id, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= pf.label :your_recent_photo, :class => 'control-label' %>
-      <div class="controls">
-        <%= pf.file_field :image %>
-      </div>
-    </div>
+    <%= f.label :role, :class => 'control-label' %>
+    <div class="controls">
+     <%= f.select(:type, options_for_select(Member::ROLES, :selected => params[:type]), { :include_blank => true }) %>
+   </div>
+ </div>
+ <div class="control-group">
+  <%= f.fields_for :profile do |pf| %>
   <%####################################################################%>
-    <% end %>
+  <div class="informatio_name">Step 2: Personal Information: </div>
+  <div class="control-group">
+    <%= pf.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :fname, :class => 'text_field' %>
+    </div>
   </div>
+  <div class="control-group">
+    <%= pf.label :middle_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :mname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :lname, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :father_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :father_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :date_of_birth, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :dob, :class => 'text_field','data-behaviour' => 'datepicker' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :approximate_age, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :age, :class => 'numeric_field' %>
+    </div>
+  </div>
+  <div class="informatio_name"> Address Information: </div>
+  <div class="control-group">
+    <%= pf.label :district, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :district, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :zone, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :zone, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :VDC, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :mcp, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :ward_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :ward_no, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :phone, :class => 'numeric_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :occupation, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.text_field :occupation, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= pf.label :maritial_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= pf.select(:maritial_status, options_for_select(Profile::MARITIAL_STATUS, :selected => params[:maritial_status])) %>
+    </div>
+  </div>
+  <div class="informatio_name"> Step 3: Account Verification </div>
+  <div class="control-group">
+    <%= pf.label :verification_type, :class => 'control-label' %>
+    <div class="controls">
+     <%= pf.select(:verification_type, options_for_select(Profile::VERIFIED_BY,:selected => params[:verification_type] )) %>
+   </div>
+ </div>
+ <div class="control-group">
+  <%= pf.label :verification_id, :class => 'control-label' %>
+  <div class="controls">
+    <%= pf.text_field :verification_id, :class => 'text_field' %>
+  </div>
+</div>
+<div class="control-group">
+  <%= pf.label :your_recent_photo, :class => 'control-label' %>
+  <div class="controls">
+    <%= pf.file_field :image %>
+  </div>
+</div>
+<%####################################################################%>
+<% end %>
+</div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                members_path, :class => 'btn' %>
-  </div>
+<div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+  members_path, :class => 'btn' %>
+</div>
 <% end %>
 </div>

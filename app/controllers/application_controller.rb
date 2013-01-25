@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :require_login
 
-
   def current_active_bank
     @current_user = current_user
   end

@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  # before_filter :authenticate_user!
+  before_filter :authenticate_member!
 
   def index
     @accounts = Account.all.to_a
@@ -72,5 +72,4 @@ class AccountsController < ApplicationController
       format.html
     end
   end
-
 end

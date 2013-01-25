@@ -1,5 +1,13 @@
 class CashCollectionsController < ApplicationController
-  autocomplete :account, :id, :display_value => :get_name
+  before_filter :authenticate_member!
+
+  def index
+    if current_member.type == "3"
+      @collections = CashCollection.order('created_at').limit(50)
+    else
+      @collections = current_member.cash_collections.order('created_at')
+    end
+  end
 
   def new
     @collection = CashCollection.new
@@ -16,13 +24,5 @@ class CashCollectionsController < ApplicationController
         format.html { render action: "new", alert: "Account name is invalid" }
       end
     end
-
-  end
-
-  def show
-  end
-
-  def index
-    @collections = current_member.cash_collections#CashCollection.all.to_a
   end
 end

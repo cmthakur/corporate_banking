@@ -1,5 +1,7 @@
 SimpleBanking::Application.routes.draw do
 
+  post "/members" => "members#create"
+
   devise_for :members
 
   get "dashboard/index"

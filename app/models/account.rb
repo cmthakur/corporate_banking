@@ -40,5 +40,4 @@ class Account < ActiveRecord::Base
   def unlock!
     update_attribute(:status, 'active')
   end
-
 end

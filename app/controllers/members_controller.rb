@@ -1,8 +1,9 @@
 class MembersController < ApplicationController
+  before_filter :authenticate_member!
   before_filter :check_existance_of_profile, :only => [:show]
 
   def index
-    @members =  Member.all.to_a
+    @members = Member.all.to_a
   end
 
   def new
@@ -10,7 +11,6 @@ class MembersController < ApplicationController
   end
 
   def create
-    binding.pry
     member_data =  params['member'].except('profile')
     profile_data = params['member']['profile']
     @member = Member.new(member_data)
@@ -74,9 +74,11 @@ class MembersController < ApplicationController
   private
 
   def check_existance_of_profile
-    unless current_member.profile
-      redirect_to edit_member_path(current_member)
+    if current_member
+      member = current_member ||  Member.find(params["id"])
+      unless member.profile
+        redirect_to edit_member_path(member)
+      end
     end
   end
-
 end
