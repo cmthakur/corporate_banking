@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= render :file => 'layouts/upper_navigation' %>
   <% render :file => 'layouts/bank_navigation' if current_member %>
-  <%= render :file => 'layouts/roles_navigation' if current_member %>
+  <%= render :file => 'layouts/roles_navigation' %>
   <p class="notice"><%= notice %></p>
   <p class="alert_message"><%= alert %></p>
 
@@ -17,4 +17,5 @@
  <%= yield %>
 
 </body>
+<footer class="footer"><p> copyright &copy; simplebanking 2012 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Powered by <a href="sites.google.com/site/r2solution/">RealRadiantSolution</a></p></footer>
 </html>

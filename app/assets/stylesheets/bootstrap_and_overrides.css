@@ -24,8 +24,9 @@
   }
 
   .container {
-    width: 300px;
+    width: 25%;
     margin-top: 10%;
+    text-align: center;
   }
 
   /* The white background content wrapper */

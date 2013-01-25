@@ -32,6 +32,7 @@ class AccountsController < ApplicationController
 
   def edit
     @account = Account.find(params['id'])
+    @profile = @account.profile
   end
 
   def show

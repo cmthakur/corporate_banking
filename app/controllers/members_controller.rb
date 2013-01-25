@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_filter :authenticate_member!
+  before_filter :authenticate_member!, :except => [:new, :create]
   before_filter :check_existance_of_profile, :only => [:show]
 
   def index

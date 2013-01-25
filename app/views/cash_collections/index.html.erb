@@ -1,17 +1,18 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Account No.</th>
-      <th>Account Name</th>
-      <th>Amount Deposited</th>
-      <th>Total Amount</th>
-      <th>Collected By</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @collections.each do |collection| %>
-    <% account = collection.account %>
+<div class="box_show" >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Account No.</th>
+        <th>Account Name</th>
+        <th>Amount Deposited</th>
+        <th>Total Amount</th>
+        <th>Collected By</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @collections.each do |collection| %>
+      <% account = collection.account %>
       <tr>
         <td><%= link_to account.id, account_path(account.id) %></td>
         <td><%= account.full_name %></td>
@@ -19,6 +20,7 @@
         <td><%= account.balance.amount %></td>
         <td><%= collection.collected_by %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+</div>
