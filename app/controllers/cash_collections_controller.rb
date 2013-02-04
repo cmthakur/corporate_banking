@@ -14,14 +14,18 @@ class CashCollectionsController < ApplicationController
   end
 
   def create
-    collection_data = params['cash_collection']
-    @account = Account.find collection_data['account_id']
-    collection = @account.cash_collections.new({amount: collection_data['amount'], member_id: current_member.id})
+    collection_data = params['cash_collection'].merge!(params['collecton_type'])
+    @account = Account.where(id: collection_data['account_id']).first
     respond_to do |format|
-      if collection.save!
-        format.html { redirect_to cash_collections_path, notice: 'Cash collected successfully!'}
+      if @account.present?
+        collection = @account.cash_collections.new(collection_data.except('account_id').merge({member_id: current_member.id}))
+        if collection.save!
+          format.html { redirect_to cash_collections_path, notice: 'Cash collected successfully!'}
+        else
+          format.html { render action: "new", alert: "Collection can not be done for this account." }
+        end
       else
-        format.html { render action: "new", alert: "Account name is invalid" }
+        format.html {redirect_to new_cash_collection_path, :alert => "Account do not exists !" }
       end
     end
   end

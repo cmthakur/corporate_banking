@@ -5,7 +5,7 @@
         <th>Account No.</th>
         <th>Account Name</th>
         <th>Amount Deposited</th>
-        <th>Total Amount</th>
+        <th>Collection Type</th>
         <th>Collected By</th>
         <th></th>
       </tr>
@@ -17,7 +17,7 @@
         <td><%= link_to account.id, account_path(account.id) %></td>
         <td><%= account.full_name %></td>
         <td><%= collection.amount %></td>
-        <td><%= account.balance.amount %></td>
+         <td><%= collection.type %></td>
         <td><%= collection.collected_by %></td>
       </tr>
       <% end %>

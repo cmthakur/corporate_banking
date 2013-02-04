@@ -69,8 +69,12 @@ class AccountsController < ApplicationController
   def passbook
     @account = Account.find(params['id'])
     @passbook_data = @account.cash_collections
-    respond_to do |format|
-      format.html
+    if @passbook_data.present?
+      respond_to do |format|
+        format.html
+      end
+    else
+      redirect_to :back, :alert => "There is no passbook for this account."
     end
   end
 end
